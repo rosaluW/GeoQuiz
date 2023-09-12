@@ -10,12 +10,12 @@ const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
 class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val questionBank = listOf(
-        Question(R.string.question_australia, true),
-        Question(R.string.question_oceans, true),
-        Question(R.string.question_mideast, false),
-        Question(R.string.question_africa, false),
-        Question(R.string.question_americas, true),
-        Question(R.string.question_asia, true))
+        Question(R.string.question_cpp, false),
+        Question(R.string.question_cs_is_fun, true),
+        Question(R.string.question_independence_day, true),
+        Question(R.string.question_heartbeat, false),
+        Question(R.string.question_national_parks, true),
+        Question(R.string.question_first_president, false))
 
     private var currentIndex: Int
         get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
