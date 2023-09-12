@@ -27,10 +27,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.trueButton.setOnClickListener { view: View ->
+            disableButtons()
             checkAnswer(true)
         }
 
         binding.falseButton.setOnClickListener { view: View ->
+            disableButtons()
             checkAnswer(false)
         }
 
@@ -38,16 +40,26 @@ class MainActivity : AppCompatActivity() {
             if (currentIndex != 0)
                 currentIndex = (currentIndex - 1) % questionBank.size
             updateQuestion()
-
+            enableButtons()
         }
 
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestion()
-
+            enableButtons()
         }
 
         updateQuestion()
+    }
+
+    private fun disableButtons() {
+        binding.trueButton.isEnabled = false;
+        binding.falseButton.isEnabled = false;
+    }
+
+    private fun enableButtons() {
+        binding.trueButton.isEnabled = true;
+        binding.falseButton.isEnabled = true;
     }
 
     private fun updateQuestion() {
