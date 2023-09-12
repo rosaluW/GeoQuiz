@@ -11,10 +11,10 @@
     <string name="judgment_toast">Cheating is wrong.</string>
     <string name="previous_button">Prev</string>
     <string name="next_button">Next</string>
-    <string name="question_cpp">CPP stands for College of Pomona People.</string>
-    <string name="question_cs_is_fun">Computer Science is fun!</string>
-    <string name="question_independence_day">Independence Day is on the 4th of July.</string>
-    <string name="question_heartbeat">A healthy heart at rest beats at 40-130 beats per second.</string>
-    <string name="question_national_parks">There are 63 National Parks in the US.</string>
-    <string name="question_first_president">Abraham Lincoln is the first president of the US.</string>
+    <string name="question_cpp">1. CPP stands for College of Pomona People.</string>
+    <string name="question_cs_is_fun">2. Computer Science is fun!</string>
+    <string name="question_independence_day">3. Independence Day is on the 4th of July.</string>
+    <string name="question_heartbeat">4. A healthy heart at rest beats at 40-130 beats per second.</string>
+    <string name="question_national_parks">5. There are 63 National Parks in the US.</string>
+    <string name="question_first_president">6. Abraham Lincoln is the first president of the US.</string>
 </resources>

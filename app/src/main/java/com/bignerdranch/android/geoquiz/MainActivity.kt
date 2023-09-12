@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         binding.nextButton.setOnClickListener {
             quizViewModel.moveToNext()
             updateQuestion()
+            enableButtons()
         }
 
         binding.cheatButton.setOnClickListener {
@@ -63,7 +64,6 @@ class MainActivity : AppCompatActivity() {
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
             cheatLauncher.launch(intent)
-            enableButtons()
         }
 
         updateQuestion()
