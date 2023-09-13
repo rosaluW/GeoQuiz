@@ -38,11 +38,13 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
 
         binding.trueButton.setOnClickListener { view: View ->
+            quizViewModel.setIsAnswered()
             disableButtons()
             checkAnswer(true)
         }
 
         binding.falseButton.setOnClickListener { view: View ->
+            quizViewModel.setIsAnswered()
             disableButtons()
             checkAnswer(false)
         }
@@ -50,13 +52,19 @@ class MainActivity : AppCompatActivity() {
         binding.previousButton.setOnClickListener {
             quizViewModel.moveToPrevious()
             updateQuestion()
-            enableButtons()
+            if (quizViewModel.currentQuestionIsAnswered)
+                disableButtons()
+            else
+                enableButtons()
         }
 
         binding.nextButton.setOnClickListener {
             quizViewModel.moveToNext()
             updateQuestion()
-            enableButtons()
+            if (!quizViewModel.currentQuestionIsAnswered)
+                enableButtons()
+            else
+                disableButtons()
         }
 
         binding.cheatButton.setOnClickListener {

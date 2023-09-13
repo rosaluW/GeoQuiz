@@ -11,12 +11,12 @@ const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val questionBank = listOf(
-        Question(R.string.question_cpp, false),
-        Question(R.string.question_cs_is_fun, true),
-        Question(R.string.question_independence_day, true),
-        Question(R.string.question_heartbeat, false),
-        Question(R.string.question_national_parks, true),
-        Question(R.string.question_first_president, false))
+        Question(R.string.question_cpp, false, false),
+        Question(R.string.question_cs_is_fun, true, false),
+        Question(R.string.question_independence_day, true, false),
+        Question(R.string.question_heartbeat, false, false),
+        Question(R.string.question_national_parks, true, false),
+        Question(R.string.question_first_president, false, false))
 
     var isCheater: Boolean
         get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
@@ -32,6 +32,13 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     val currentQuestionText: Int
         get() = questionBank[currentIndex].textResId
 
+    val currentQuestionIsAnswered: Boolean
+        get() = questionBank[currentIndex].isAnswered
+
+    fun setIsAnswered() {
+        questionBank[currentIndex].isAnswered = true
+    }
+
     fun moveToNext() {
         if (currentIndex != (questionBank.size - 1))
             currentIndex = (currentIndex + 1) % questionBank.size
@@ -39,6 +46,6 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun moveToPrevious() {
         if (currentIndex != 0)
-            currentIndex = (currentIndex - 1) % questionBank.size
+            currentIndex -= 1
     }
 }
